@@ -17,7 +17,7 @@ import ch.zhaw.springboot.repositories.PersonRepository;
 public class PersonRestController {
 	@Autowired
 	private PersonRepository repository;
-
+/*
 	@RequestMapping(value = "infections/persons", method = RequestMethod.GET)
 	public ResponseEntity<List<Person>> getPersons() {
 		List<Person> result = this.repository.findAll();
@@ -39,4 +39,5 @@ public class PersonRestController {
 			return new ResponseEntity<List<Person>>(HttpStatus.NOT_FOUND);
 		}
 	}
+	*/
 }
