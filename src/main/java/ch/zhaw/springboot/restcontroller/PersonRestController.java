@@ -17,8 +17,8 @@ import ch.zhaw.springboot.repositories.PersonRepository;
 public class PersonRestController {
 	@Autowired
 	private PersonRepository repository;
-/*
-	@RequestMapping(value = "infections/persons", method = RequestMethod.GET)
+
+	@RequestMapping(value = "kaiku/persons", method = RequestMethod.GET)
 	public ResponseEntity<List<Person>> getPersons() {
 		List<Person> result = this.repository.findAll();
 
@@ -29,7 +29,7 @@ public class PersonRestController {
 		}
 	}
 
-	@RequestMapping(value = "infections/persons/{birthdate}", method = RequestMethod.GET)
+	@RequestMapping(value = "kaiku/persons/{birthdate}", method = RequestMethod.GET)
 	public ResponseEntity<List<Person>> getPersonsByBirthdate(@PathVariable("birthdate") long birthdate) {
 		List<Person> result = this.repository.findPersonsByBirthdate(birthdate);
 
@@ -39,5 +39,4 @@ public class PersonRestController {
 			return new ResponseEntity<List<Person>>(HttpStatus.NOT_FOUND);
 		}
 	}
-	*/
 }
