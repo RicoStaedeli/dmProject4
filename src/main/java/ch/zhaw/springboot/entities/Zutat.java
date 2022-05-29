@@ -1,9 +1,12 @@
 package ch.zhaw.springboot.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Zutat {
@@ -15,10 +18,15 @@ public class Zutat {
 	private String name;
 	private int kcal;
 
+
 	public Zutat(String name, int kcal) {
 
 		this.name = name;
 		this.kcal = kcal;
+	}
+	
+	public Zutat() {
+		
 	}
 
 	public String getName() {
@@ -28,7 +36,8 @@ public class Zutat {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	
 	public int getKcal() {
 		return kcal;
 	}

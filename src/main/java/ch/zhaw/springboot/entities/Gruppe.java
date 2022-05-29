@@ -1,9 +1,12 @@
 package ch.zhaw.springboot.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Gruppe {
@@ -14,10 +17,17 @@ public class Gruppe {
 
 	private String gruppe_name;
 	private int anzahl_personen;
+	
+	@OneToMany
+	private List<Person> teilnehmer;
 
 	public Gruppe(String gruppe_name, int anzahl_personen) {
 		this.gruppe_name = gruppe_name;
 		this.anzahl_personen = anzahl_personen;
+	}
+	
+	public Gruppe() {
+		
 	}
 
 	public String getGruppe_name() {
@@ -26,6 +36,14 @@ public class Gruppe {
 
 	public void setGruppe_name(String gruppe_name) {
 		this.gruppe_name = gruppe_name;
+	}
+
+	public List<Person> getTeilnehmer() {
+		return teilnehmer;
+	}
+
+	public void setTeilnehmer(List<Person> teilnehmer) {
+		this.teilnehmer = teilnehmer;
 	}
 
 	public int getAnzahl_personen() {
