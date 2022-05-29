@@ -29,9 +29,9 @@ public class PersonRestController {
 		}
 	}
 
-	@RequestMapping(value = "kaiku/persons/{birthdate}", method = RequestMethod.GET)
-	public ResponseEntity<List<Person>> getPersonsByBirthdate(@PathVariable("birthdate") long birthdate) {
-		List<Person> result = this.repository.findPersonsByBirthdate(birthdate);
+	@RequestMapping(value = "kaiku/persons/{name}", method = RequestMethod.GET)
+	public ResponseEntity<List<Person>> getPersonsByBirthdate(@PathVariable("name") String name) {
+		List<Person> result = this.repository.findPersonsByName(name);
 
 		if (!result.isEmpty()) {
 			return new ResponseEntity<List<Person>>(result, HttpStatus.OK);

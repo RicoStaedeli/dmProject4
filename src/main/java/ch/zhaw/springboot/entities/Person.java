@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Person {
 
@@ -13,15 +15,22 @@ public class Person {
 	private long id;
 
 	private String name;
+	
+	private String mail;
 	private long birthdate;
 
-	public Person(String name, long birthdate) {
+	public Person(String name, String mail, long birthdate) {
 		this.name = name;
+		this.mail = mail;
 		this.birthdate = birthdate;
 	}
 
 	public Person() {
 
+	}
+
+	public String getMail() {
+		return mail;
 	}
 
 	public String getName() {
