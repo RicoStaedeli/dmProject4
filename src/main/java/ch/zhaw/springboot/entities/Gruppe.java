@@ -54,4 +54,12 @@ public class Gruppe {
 		this.anzahl_personen = anzahl_personen;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 }

@@ -28,11 +28,11 @@ public class Person {
 	public Person() {
 
 	}
-
-	public String getMail() {
-		return mail;
+	
+	public long getId() {
+		return id;
 	}
-
+	
 	public String getName() {
 		return this.name;
 	}
@@ -40,4 +40,28 @@ public class Person {
 	public long getBirthdate() {
 		return this.birthdate;
 	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public void setBirthdate(long birthdate) {
+		this.birthdate = birthdate;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 }

@@ -1,6 +1,7 @@
 package ch.zhaw.springboot.entities;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,9 @@ public class Zutat {
 
 	private String name;
 	private int kcal;
-
+	
+    @ManyToMany(mappedBy = "zutaten_in_Menu")
+    Set<Menu> menu;
 
 	public Zutat(String name, int kcal) {
 
