@@ -1,6 +1,5 @@
 package ch.zhaw.springboot.entities;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -27,6 +26,13 @@ public class Menu {
     	joinColumns = @JoinColumn(name = "menu_id"), 
     	inverseJoinColumns = @JoinColumn(name = "zutat_id"))
     Set<Zutat> zutaten_in_Menu;
+    
+    @ManyToMany
+    @JoinTable(
+    	name = "menu_in_restaurant", 
+    	joinColumns = @JoinColumn(name = "menu_id"), 
+    	inverseJoinColumns = @JoinColumn(name = "restaurant_id"))
+    Set<Restaurant> menu_in_restaurant;
 
 	public Menu(String name, double preis) {
 		this.name = name;
@@ -35,6 +41,24 @@ public class Menu {
 	
 	public Menu() {
 		
+	}
+	
+	
+
+	public Set<Zutat> getZutaten_in_Menu() {
+		return zutaten_in_Menu;
+	}
+
+	public void setZutaten_in_Menu(Set<Zutat> zutaten_in_Menu) {
+		this.zutaten_in_Menu = zutaten_in_Menu;
+	}
+
+	public Set<Restaurant> getMenu_in_restaurant() {
+		return menu_in_restaurant;
+	}
+
+	public void setMenu_in_restaurant(Set<Restaurant> menu_in_restaurant) {
+		this.menu_in_restaurant = menu_in_restaurant;
 	}
 
 	public String getName() {

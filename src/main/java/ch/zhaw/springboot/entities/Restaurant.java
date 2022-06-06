@@ -1,11 +1,13 @@
 package ch.zhaw.springboot.entities;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,8 +21,12 @@ public class Restaurant {
 	private String standort;
 	private int bewertung;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "restaurant")
 	private List<Reservation> reservationen;
+	
+	
+    @ManyToMany(mappedBy = "menu_in_restaurant")
+    Set<Menu> menu;
 
 
 	public Restaurant(String name, String standort, int bewertung) {

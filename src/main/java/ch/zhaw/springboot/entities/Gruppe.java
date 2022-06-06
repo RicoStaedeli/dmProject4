@@ -18,8 +18,9 @@ public class Gruppe {
 	private String gruppe_name;
 	private int anzahl_personen;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "gruppe")
 	private List<Person> teilnehmer;
+	
 
 	public Gruppe(String gruppe_name, int anzahl_personen) {
 		this.gruppe_name = gruppe_name;

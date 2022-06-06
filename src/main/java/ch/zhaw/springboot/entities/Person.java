@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -17,9 +19,13 @@ public class Person {
 	private String name;
 	
 	private String mail;
-	private long birthdate;
+	private String birthdate;
+	
+	@ManyToOne
+	@JoinColumn(name="gruppe_id")
+	private Gruppe gruppe;
 
-	public Person(String name, String mail, long birthdate) {
+	public Person(String name, String mail, String birthdate) {
 		this.name = name;
 		this.mail = mail;
 		this.birthdate = birthdate;
@@ -37,7 +43,7 @@ public class Person {
 		return this.name;
 	}
 
-	public long getBirthdate() {
+	public String getBirthdate() {
 		return this.birthdate;
 	}
 
@@ -53,7 +59,7 @@ public class Person {
 		this.mail = mail;
 	}
 
-	public void setBirthdate(long birthdate) {
+	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
 	}
 
