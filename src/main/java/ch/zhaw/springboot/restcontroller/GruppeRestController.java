@@ -1,6 +1,7 @@
 package ch.zhaw.springboot.restcontroller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.zhaw.springboot.entities.Gruppe;
-import ch.zhaw.springboot.entities.Person;
 import ch.zhaw.springboot.repositories.GruppeRepository;
 
 @RestController
@@ -31,6 +31,28 @@ public class GruppeRestController {
 			return new ResponseEntity<List<Gruppe>>(result, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<List<Gruppe>>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "kaiku/groupscomplete", method = RequestMethod.GET)
+	public ResponseEntity<List<Gruppe>> getGroupsComplete() {
+		List<Gruppe> result = this.repository.getGroupsWithpersons();
+
+		if (!result.isEmpty()) {
+			return new ResponseEntity<List<Gruppe>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Gruppe>>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "kaiku/groups/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Gruppe> getGroupById(@PathVariable("id") long id) {
+		Optional<Gruppe> result = this.repository.findById(id);
+
+		if (result.isPresent()) {
+			return new ResponseEntity<Gruppe>(result.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Gruppe>(HttpStatus.NOT_FOUND);
 		}
 	}
 	

@@ -198,4 +198,9 @@ insert into zutaten_in_menu (menu_id, zutat_id) values (2, 2);
 insert into zutaten_in_menu (menu_id, zutat_id) values (7, 8);
 insert into zutaten_in_menu (menu_id, zutat_id) values (17, 2);
 insert into zutaten_in_menu (menu_id, zutat_id) values (13, 7);
+insert into imbiss (id, phone) values (1, '402-777-3285');
+insert into imbiss (id, phone) values (2, '590-868-0474');
+insert into imbiss (id, phone) values (3, '454-271-2587');
+insert into imbiss (id, phone) values (4, '128-118-5254');
+insert into imbiss (id, phone) values (5, '458-599-8891');
 

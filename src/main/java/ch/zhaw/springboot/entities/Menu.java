@@ -42,8 +42,6 @@ public class Menu {
 	public Menu() {
 		
 	}
-	
-	
 
 	public Set<Zutat> getZutaten_in_Menu() {
 		return zutaten_in_Menu;
