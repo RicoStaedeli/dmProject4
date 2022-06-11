@@ -4,3 +4,4 @@ Extra Work
 - We used multiple M-N Relationships
 - We have 7 Entities
 - We used Native Queries with joins
+- We used HTTP Basic authentication to protect the REST endpoints for the groups. for example delete request is only possile if its from an Admin user.
